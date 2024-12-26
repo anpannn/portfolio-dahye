@@ -16,7 +16,7 @@ class AdminExperienceViewController(private val adminExperienceService: AdminExp
     @GetMapping
     fun experience(model: Model): String {
         // FORM 요소 세팅
-        val elements = listOf<FormElementDTO>(
+        val formElements = listOf<FormElementDTO>(
             TextFormElementDTO("title", 4),
             TextFormElementDTO("description", 8),
             SelectFormElementDTO("startYear", 3, (2010..2030).toList()),
@@ -25,13 +25,13 @@ class AdminExperienceViewController(private val adminExperienceService: AdminExp
             SelectFormElementDTO("endMonth", 2, (1..12).toList()),
             SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
         )
-        model.addAttribute("elements", elements)
+        model.addAttribute("formElements", formElements)
         // 상세 FORM 요소 세팅
-        val detailElements = listOf<FormElementDTO>(
+        val detailFormElements = listOf<FormElementDTO>(
             TextFormElementDTO("content", 10),
             SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
         )
-        model.addAttribute("detailElements", detailElements)
+        model.addAttribute("detailFormElements", detailFormElements)
         // 테이블 정보 세팅
         val table = adminExperienceService.getExperienceTable()
         model.addAttribute("table", table)

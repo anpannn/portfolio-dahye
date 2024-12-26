@@ -17,12 +17,12 @@ class AdminSkillViewController(private val adminSkillService: AdminSkillService)
     @GetMapping
     fun skill(model: Model): String {
         // FORM 요소 세팅
-        val elements = listOf<FormElementDTO>(
+        val formElements = listOf<FormElementDTO>(
             TextFormElementDTO("name", 2),
             SelectFormElementDTO("type", 2, SkillType.values().map { it.name }.toList()),
             SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
         )
-        model.addAttribute("elements", elements)
+        model.addAttribute("formElements", formElements)
         // 테이블 정보 세팅
         val table = adminSkillService.getSkillTable()
         model.addAttribute("table", table)

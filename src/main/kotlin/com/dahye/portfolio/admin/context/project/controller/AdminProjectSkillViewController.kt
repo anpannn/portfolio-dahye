@@ -17,11 +17,11 @@ class AdminProjectSkillViewController(private val adminProjectSkillService: Admi
         val projectList = adminProjectSkillService.getProjectList()
         val skillList = adminProjectSkillService.getSkillList()
         // FORM 요소 세팅
-        val elements = listOf<FormElementDTO>(
+        val formElements = listOf<FormElementDTO>(
             SelectFormElementDTO("project", 8, projectList),
             SelectFormElementDTO("skill", 4, skillList),
         )
-        model.addAttribute("elements", elements)
+        model.addAttribute("formElements", formElements)
         // 테이블 정보 세팅
         val table = adminProjectSkillService.getProjectSkillTable()
         model.addAttribute("table", table)

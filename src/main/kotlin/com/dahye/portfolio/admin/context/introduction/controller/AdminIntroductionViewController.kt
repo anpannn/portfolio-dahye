@@ -16,11 +16,11 @@ class AdminIntroductionViewController(private val adminIntroductionService: Admi
     @GetMapping
     fun introduction(model: Model): String {
         // FORM 요소 세팅
-        val elements = listOf<FormElementDTO>(
+        val formElements = listOf<FormElementDTO>(
             TextFormElementDTO("content", 10),
             SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString())),
         )
-        model.addAttribute("elements", elements)
+        model.addAttribute("formElements", formElements)
         // 테이블 정보 세팅
         val table = adminIntroductionService.getIntroductionTable()
         model.addAttribute("table", table)

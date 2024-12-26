@@ -16,12 +16,12 @@ class AdminLinkViewController(private val adminLinkService: AdminLinkService) {
     @GetMapping
     fun link(model: Model): String {
         // FORM 요소 세팅
-        val elements = listOf<FormElementDTO>(
+        val formElements = listOf<FormElementDTO>(
             TextFormElementDTO("name", 2),
             TextFormElementDTO("content", 8),
             SelectFormElementDTO("isActive", 2, listOf(true.toString(), false.toString()))
         )
-        model.addAttribute("elements", elements)
+        model.addAttribute("formElements", formElements)
         // 테이블 정보 세팅
         val table = adminLinkService.getLinkTable()
         model.addAttribute("table", table)
